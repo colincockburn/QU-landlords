@@ -1,4 +1,6 @@
 import React from 'react';
+import 'tailwindcss/tailwind.css'
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './Components/NavBar.js';
 import Home from './Pages/Home.js';
