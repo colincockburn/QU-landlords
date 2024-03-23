@@ -7,9 +7,8 @@ function NavBar() {
       <div className='flex justify-start w-1/2'>
         {/* <img src="/flag.png" alt="Queens Flag " className='w-20' /> */}
         <div className='flex-col '>
-          <Link to="/" className="md:text-2xl font-semibold font-Raleway text-black">QUW Landlords</Link>
-          <p className="text-gray-700">Not associated with Queen's University</p>
-        </div>
+          <Link to="/" className="md:text-2xl font-semibold font-Raleway text-black">QU Landlords</Link>
+          <p className="text-gray-700 hidden sm:block">Not associated with Queen's University</p>        </div>
       </div>
       <div className='flex justify-between w-1/2 2xl:pl-40 md:text-2xl font-semibold text-black'>
         <Link to="/reviews" className="">Reviews</Link>
