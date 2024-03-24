@@ -10,6 +10,7 @@ import Post from './Pages/Post.js';
 
 function App() {
   return (
+    <div className="flex flex-col items-center h-screen">
     <Router>
       <NavBar />
       <Routes>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/post" element={<Post />} />
       </Routes>
     </Router>
+    </div>
   );
 }
 

@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.h-screen-minus-navbar {
+  height: calc(100vh - 60px); /* Replace 60px with the actual height of your navbar */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
