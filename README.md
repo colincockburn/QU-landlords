@@ -1,8 +1,10 @@
-# QULL Review System
+# qulandlords.com
 
 ## Overview
 
-The QU-Landlord app is a full-stack web application designed for users to write and submit reviews about landlords or property management companies. This application is built using the MERN stack - MongoDB, Express.js, React, and Node.js.
+QU-Landlords is a full-stack web application designed for users to write and submit reviews about landlords or property management companies in Kingston, Ontario. This application is built using the MERN stack - MongoDB, Express.js, React, and Node.js.
+
+![Website Homepage](home_page.png)
 
 ## Features
 
