@@ -10,7 +10,7 @@ function Home() {
           <h1 className="text-2xl md:text-4xl font-extrabold font-custom mb-3 text-qul-red">We believe in transparency between you and your future landlord.</h1>
           <p className="text-xl text-qul-gray">Anonymously rate and review landlords in Kingston</p>
         </div>
-        <img src="/flag.png" alt="Queens Flag" className='w-20 mt-14 md:mt-0' style={{ height: "140px", width: "130px" }} />
+        <img src="/house.png" alt="Queens Flag" className='w-20 mt-14 md:mt-0' style={{ height: "140px", width: "140px" }} />
       </div>
 
       <div className="flex flex-col md:flex-row items-center flex-1 justify-center w-full px-14 md:px-0 bg-slate-5001">
