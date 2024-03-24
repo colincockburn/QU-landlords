@@ -5,7 +5,22 @@ module.exports = {
     extend: {
       fontFamily: {
         'custom': ['Raleway', 'sans-serif']
-      }
+      },
+      flex: {
+        '2': '2 2 0%',
+        '3': '3 3 0%',
+        '4': '4 4 0%',
+        '5': '5 5 0%',
+        // Add more as needed
+      },
+      colors: {
+        'qul-red': '#D32F2F',
+        'qul-red-light': '#E57373',
+        'qul-gray': '#777777',
+      },
+      maxWidth: {
+        'maxw': '1000px', // Replace '500px' with your desired value
+      },
     },
   },
   plugins: [],

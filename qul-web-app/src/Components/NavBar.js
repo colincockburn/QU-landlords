@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <nav className="flex justify-between items-center text-sm h-12 md:h-20 font-custom border-b border-black px-5 md:px-10 lg:px-44">
+    <nav className="flex w-full justify-between items-center text-sm h-12 md:h-20 font-custom border-b border-black px-5 md:px-10 lg:px-44">
       <div className='flex justify-start w-1/2'>
         {/* <img src="/flag.png" alt="Queens Flag " className='w-20' /> */}
         <div className='flex-col '>
