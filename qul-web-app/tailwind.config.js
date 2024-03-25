@@ -17,6 +17,7 @@ module.exports = {
         'qul-red': '#D32F2F',
         'qul-red-light': '#E57373',
         'qul-gray': '#777777',
+        'qul-dark-gray': '#333333',
         'qul-bg': '#F4F4F4',
       },
       maxWidth: {
