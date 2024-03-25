@@ -10,7 +10,7 @@ import Post from './Pages/Post/Post.js';
 
 function App() {
   return (
-    <div className="flex flex-col items-center h-screen bg-qul-bg">
+    <div className="flex flex-col items-center min-h-screen bg-qul-bg">
     <Router>
       <NavBar />
       <Routes>
