@@ -51,9 +51,6 @@ function Post() {
           // TODO: Display error message to user
           setIsLoading(false);
       }
-
-      const data = await response.json();
-      console.log(data);
     } catch (error) {
         console.error('Error:', error);
 

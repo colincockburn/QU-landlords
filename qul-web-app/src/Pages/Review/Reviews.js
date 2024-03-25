@@ -7,16 +7,30 @@ import ReviewCard from './ReviewCard';
 function Reviews() {
 
   const [isLoading, setIsLoading] = useState(false); // State to track if form has been submitted
+  const [reviews, setReviews] = useState([]);
 
-  useEffect(() => { 
-    setIsLoading(true);
-    // Write code to pause for three secends
-    setTimeout(() => {
+  // This is called whenever the page is fetched
+  useEffect(() => {
+    const loadPosts = async () => {
+      setIsLoading(true);
+      console.log('Fetching reviews...');
+      try {
+        let response = await fetch('http://localhost:3000/api/reviews');
+        if (response.ok) {
+          console.log("Reviews fetched successfully!");
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        let results = await response.json();
+        setReviews(results);
+        console.log(results);
+      } catch (error) {
+        console.error("Could not fetch reviews:", error);
+      }
       setIsLoading(false);
-    }, 1000);
-    // This function will be called when the Reviews component is mounted
-    console.log('User navigated to the Reviews page');
-    // Place your logic here, like fetching data from an API, setting up subscriptions, etc.
+    };
+  
+    loadPosts(); // Call the function to execute the fetch operation.
   }, []);
 
   return (
@@ -29,9 +43,16 @@ function Reviews() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-      {isLoading && <ReviewProcessing />}
-      <ReviewCard className='pt-5' />
       </div>
+      {isLoading ? (
+        <ReviewProcessing />
+      ) : (
+        <div className="w-full">
+          {reviews.map(review => (
+            <ReviewCard key={review._id} review={review} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
