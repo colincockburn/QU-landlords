@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import SubmissionSuccess from './SubmissionSuccess';
+import ReviewProcessing from './ReviewProcessing';
 
 function Post() {
-  const [review, setReview] = useState({
+
+  const [isLoading, setIsLoading] = useState(false); // State to track if form has been submitted
+  const [isSubmitted, setIsSubmitted] = useState(false); // State to track if form has been submitted
+
+  const [review, setReview] = useState({ // State to track form inputs
     landlordName: '',
     propertyAddress: '',
     duration: '',
@@ -9,7 +15,6 @@ function Post() {
     reliability: 0,
     recommendation: 0,
     writtenReview: '',
-    
   });
 
   // Handle change for inputs
@@ -18,6 +23,9 @@ function Post() {
   };
 
   const handleSubmit = async (e) => {
+
+    setIsLoading(true);
+
     e.preventDefault();
 
     try {
@@ -32,21 +40,27 @@ function Post() {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        // Handle success, clear form, show message, etc.
+
+        // Handle success
+        setIsLoading(false);
+        setIsSubmitted(true);
       } else {
           const errorData = await response.json();
           console.error('Server responded with an error:', errorData);
-          // Handle errors, show user message, etc.
+
+          // TODO: Display error message to user
+          setIsLoading(false);
       }
 
       const data = await response.json();
       console.log(data);
-      // Handle success, clear form, show message, etc.
     } catch (error) {
         console.error('Error:', error);
-        // Handle errors, show user message, etc.
+
+        setIsLoading(false);
     }
   };
+
   const createRatingButtons = (ratingType) => {
     return [1, 2, 3, 4, 5].map((number) => (
       <button
@@ -58,10 +72,14 @@ function Post() {
       </button>
     ));
   };
-  
 
   return (
-    <div className="flex flex-col justify-start items-center flex-grow w-full md:w-5/6 lg:w-full max-w-maxw p-2 font-custom text-qul-dark-gray">
+    isSubmitted ? (
+      <SubmissionSuccess />
+    ) : isLoading ? (
+      <ReviewProcessing />
+    ) : (
+        <div className="flex flex-col justify-start items-center flex-grow w-full md:w-5/6 lg:w-full max-w-maxw p-2 font-custom text-qul-dark-gray">
         <div className='w-full'>
             <h2 className="text-2xl md:text-4xl font-semibold mb-1 md:mb-6 md:mt-6 text-qul-red">Write a review</h2>
         </div>
@@ -161,6 +179,7 @@ function Post() {
             </div>
         </form>
     </div>
+    )
   );
 }
 

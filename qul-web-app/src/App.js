@@ -6,7 +6,7 @@ import NavBar from './Components/NavBar.js';
 import Home from './Pages/Home.js';
 import Contact from './Pages/Contact.js';
 import Reviews from './Pages/Reviews.js';
-import Post from './Pages/Post.js';
+import Post from './Pages/Post/Post.js';
 
 function App() {
   return (
