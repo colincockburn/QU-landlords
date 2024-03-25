@@ -4,10 +4,12 @@ function Post() {
   const [review, setReview] = useState({
     landlordName: '',
     propertyAddress: '',
+    duration: '',
     rentAmount: '',
     reliability: 0,
     recommendation: 0,
-    writtenReview: ''
+    writtenReview: '',
+    
   });
 
   // Handle change for inputs
@@ -45,81 +47,117 @@ function Post() {
         // Handle errors, show user message, etc.
     }
   };
-
-  // Rating buttons (for reliability and recommendation)
-  const ratingButtons = [1, 2, 3, 4, 5].map((number) => (
-        <button
-            key={number}
-            className="focus:outline-none focus:ring focus:border-blue-300 ... other styles"
-            onClick={() => setReview({ ...review, reliability: number })} // or recommendation
-        >
-            {number}
-        </button>
+  const createRatingButtons = (ratingType) => {
+    return [1, 2, 3, 4, 5].map((number) => (
+      <button
+        key={number}
+        className={`border border-blue-400 rounded-lg p-2 mr-2 w-10 text-center ${review[ratingType] === number ? 'bg-blue-500 text-white' : 'text-blue-400'}`}
+        onClick={() => setReview({ ...review, [ratingType]: number })}
+      >
+        {number}
+      </button>
     ));
-
+  };
+  
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white">
-    <h2 className="text-2xl font-semibold mb-6">Write a review</h2>
-    <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-6 mb-6">
-            <input
-                className="border-gray-300 shadow-sm rounded-md p-2"
-                placeholder="Landlord Name or Property Management Company"
-                name="landlordName"
-                value={review.landlordName}
-                onChange={handleChange}
-            />
-            <input
-                className="border-gray-300 shadow-sm rounded-md p-2"
-                placeholder="Property Address (Optional)"
-                name="propertyAddress"
-                value={review.propertyAddress}
-                onChange={handleChange}
-            />
+    <div className="flex flex-col justify-start items-center flex-grow w-full md:w-5/6 lg:w-full max-w-maxw p-2 font-custom">
+        <div className='w-full'>
+            <h2 className="text-2xl font-semibold mb-2">Write a review</h2>
         </div>
-        <div className="grid grid-cols-2 gap-6 mb-6">
-            <input
-                className="border-gray-300 shadow-sm rounded-md p-2"
-                placeholder="Extra"
-                // No state associated in the provided example
-            />
-            <input
-                className="border-gray-300 shadow-sm rounded-md p-2"
-                placeholder="Rent Amount (Optional)"
-                name="rentAmount"
-                value={review.rentAmount}
-                onChange={handleChange}
-            />
-        </div>
-        <div className="flex items-center space-x-4 mb-6">
-            <label className="font-medium">Landlord / Company Reliability</label>
-            <div>{ratingButtons}</div>
-        </div>
-        <div className="flex items-center space-x-4 mb-6">
-            <label className="font-medium">Recommendation</label>
-            <div>{ratingButtons}</div>
-        </div>
-        <div className="mb-6">
-            <textarea
-                className="border-gray-300 shadow-sm rounded-md w-full p-2"
-                placeholder="Written review (Optional)"
-                name="writtenReview"
-                value={review.writtenReview}
-                onChange={handleChange}
-            />
-        </div>
-        <button
-            type="submit"
-            className="bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-        >
-            Post
-        </button>
-        <div className="text-xs text-gray-500 text-center mt-4">
-            Your post is 100% anonymous and is subject to being reported if inappropriate.
-        </div>
-    </form>
-  </div>
+        <form onSubmit={handleSubmit} className='w-full text-sm md:text-lg'>
+            {/* section that splits on md screens */}
+            <div className='flex flex-col md:flex-row'>
+                {/* landlord/duration/maybe landlord rating div */}
+                <div className="flex flex-col justify-between w-full">
+                    <label htmlFor="landlordName">Landlord Name</label>
+                    <input
+                        type="text"
+                        id="landlordName"
+                        name="landlordName"
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        placeholder='John Doe'
+                        value={review.landlordName}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="duration">duration</label>
+                    <input
+                        type="text"
+                        id="duration"
+                        name="duration"
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        placeholder='1 year'
+                        value={review.duration}
+                        onChange={handleChange}
+                        required
+                    />
+                    <div className="hidden md:flex flex-col">
+                        <label htmlFor="reliability">Reliability</label>
+                        <div>{createRatingButtons("reliability")}</div>
+
+                    </div>
+                </div>
+                {/* address rent amount recommendation and maybe reliability */}
+                <div className="flex flex-col justify-between w-full">
+                    <label htmlFor="propertyAddress">Property Address (Optional)</label>
+                    <input
+                        type="text"
+                        id="propertyAddress"
+                        name="propertyAddress"
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        placeholder='123 fake street'
+                        value={review.propertyAddress}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="rentAmount">Rent Amount (Optional)</label>
+                    <input
+                        type="text"
+                        id="rentAmount"
+                        name="rentAmount"
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        placeholder='800$ + utilities'
+                        value={review.rentAmount}
+                        onChange={handleChange}
+                        required
+                    />
+                    <div className='flex flex-col mb-2 '>
+                        <label htmlFor="recommendation">Recommendation</label>
+                        <div>{createRatingButtons("recommendation")}</div>
+
+                    </div>
+                    <div className="md:hidden flex flex-col mb-2 ">
+                        <label htmlFor="reliability">Reliability</label>
+                        <div>{createRatingButtons("reliability")}</div>
+                    </div>
+                </div>
+            </div>
+
+            {/* review and post */}
+            <div className='flex flex-col'>
+                <label htmlFor="writtenReview">written Review (Optional)</label>
+                <textarea
+                    id="writtenReview"
+                    name="writtenReview"
+                    className='border border-gray-900 rounded-xl bg-transparent p-2 mb-4 w-full'
+                    placeholder='John Doe is a great landlord'
+                    value={review.writtenReview}
+                    onChange={handleChange}
+                    required
+                    rows={2}
+                    />
+                <div className='flex justify-center items-center'>                
+                    <button
+                        type="submit"
+                        className=" bg-qul-red hover:bg-qul-red-light text-white font-bold h-14 w-60 py-2 px-4 rounded-xl"
+                    >
+                        Post
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
   );
 }
 
