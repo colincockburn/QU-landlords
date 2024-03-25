@@ -22,7 +22,10 @@ module.exports = {
       },
       maxWidth: {
         'maxw': '1000px', // Replace '500px' with your desired value
-      },
+      },      
+      maxHeight: {
+        '800px': '800px'
+      }
     },
   },
   plugins: [],
