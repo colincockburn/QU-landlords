@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './Components/NavBar.js';
 import Home from './Pages/Home.js';
 import Contact from './Pages/Contact.js';
-import Reviews from './Pages/Reviews.js';
+import Reviews from './Pages/Review/Reviews.js';
 import Post from './Pages/Post/Post.js';
 
 function App() {

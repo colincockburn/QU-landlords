@@ -88,7 +88,7 @@ function Post() {
             <div className='flex flex-col md:flex-row'>
                 {/* landlord/duration/maybe landlord rating div */}
                 <div className="flex flex-col justify-between w-full md:mr-10">
-                    <label htmlFor="landlordName" className='md:mb-2'>Landlord Name</label>
+                    <label htmlFor="landlordName" className='md:mb-2 text-sm'>Landlord Name</label>
                     <input
                         type="text"
                         id="landlordName"
@@ -99,7 +99,7 @@ function Post() {
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="duration" className='md:mb-2'>duration</label>
+                    <label htmlFor="duration" className='md:mb-2 text-sm'>Duration</label>
                     <input
                         type="text"
                         id="duration"
@@ -111,42 +111,42 @@ function Post() {
                         required
                     />
                     <div className="hidden md:flex flex-col mb-2 md:mb-10">
-                        <label htmlFor="reliability" className='md:mb-2'>Reliability</label>
+                        <label htmlFor="reliability" className='md:mb-2 text-sm'>Reliability</label>
                         <div>{createRatingButtons("reliability")}</div>
 
                     </div>
                 </div>
                 {/* address rent amount recommendation and maybe reliability */}
                 <div className="flex flex-col justify-between w-full">
-                    <label htmlFor="propertyAddress" className='md:mb-2'>Property Address (Optional)</label>
+                    <label htmlFor="propertyAddress" className='md:mb-2 text-sm'>Property Address (Optional)</label>
                     <input
                         type="text"
                         id="propertyAddress"
                         name="propertyAddress"
                         className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-10 w-full'
-                        placeholder='123 fake street'
+                        placeholder='123 Fake Street'
                         value={review.propertyAddress}
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="rentAmount" className='md:mb-2'>Rent Amount (Optional)</label>
+                    <label htmlFor="rentAmount" className='md:mb-2 text-sm'>Rent Amount (Optional)</label>
                     <input
                         type="text"
                         id="rentAmount"
                         name="rentAmount"
                         className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-10 w-full'
-                        placeholder='800$ + utilities'
+                        placeholder='$800 / room + utilities'
                         value={review.rentAmount}
                         onChange={handleChange}
                         required
                     />
-                    <div className='flex flex-col mb-2 md:mb-10 '>
-                        <label htmlFor="recommendation" className='md:mb-2'>Recommendation</label>
+                    <div className='flex flex-col mb-2 md:mb-10'>
+                        <label htmlFor="recommendation" className='md:mb-2 text-sm'>Recommendation</label>
                         <div>{createRatingButtons("recommendation")}</div>
 
                     </div>
                     <div className="md:hidden flex flex-col mb-2 md:mb-10 ">
-                        <label htmlFor="reliability" className='md:mb-2'>Reliability</label>
+                        <label htmlFor="reliability" className='md:mb-2 text-sm'>Reliability</label>
                         <div>{createRatingButtons("reliability")}</div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@ function Post() {
 
             {/* review and post */}
             <div className='flex flex-col'>
-                <label htmlFor="writtenReview" className='md:mb-2'>written Review (Optional)</label>
+                <label htmlFor="writtenReview" className='md:mb-2 text-sm'>Written Review (Optional)</label>
                 <textarea
                     id="writtenReview"
                     name="writtenReview"

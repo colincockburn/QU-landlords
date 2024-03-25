@@ -15,13 +15,12 @@ function Home() {
       </div>
 
       <div className="flex flex-col md:flex-row items-center flex-1 justify-center w-full px-14 md:px-0 bg-slate-5001">
-        <button className="flex justify-center items-center bg-qul-red hover:bg-qul-red-light text-white font-bold h-14  w-60 py-2 px-4 mb-5 md:mr-12 rounded-xl">
+        <Link to='/post' className="flex justify-center items-center bg-qul-red hover:bg-qul-red-light text-white font-bold h-14  w-60 py-2 px-4 mb-5 md:mr-12 rounded-xl">
           Post a Review
-        </button>
-        {/* </Link>
+        </Link>
         <Link to="/reviews" className="flex justify-center items-center border border-qul-red hover:bg-qul-red-light text-qul-red font-bold w-60 h-14 py-2 px-4 md:mb-5 rounded-xl">
           Read Reviews
-        </Link> */}
+        </Link>
       </div>
 
       <div className="hidden md:flex flex-col flex-2 items-start justify-center w-full">
