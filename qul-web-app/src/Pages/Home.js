@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -14,16 +15,16 @@ function Home() {
       </div>
 
       <div className="flex flex-col md:flex-row items-center flex-1 justify-center w-full px-14 md:px-0 bg-slate-5001">
-        <button className="flex justify-center items-center bg-qul-red hover:bg-qul-red-light text-white font-bold h-14  w-60 py-2 px-4 mb-5 md:mr-12 rounded-xl">
+        <Link to="/post" className="flex justify-center items-center bg-qul-red hover:bg-qul-red-light text-white font-bold h-14  w-60 py-2 px-4 mb-5 md:mr-12 rounded-xl">
           Post a Review
-        </button>
-        <button className="flex justify-center items-center border border-qul-red hover:bg-qul-red-light text-qul-red font-bold w-60 h-14 py-2 px-4 md:mb-5  rounded-xl">
+        </Link>
+        <Link to="/reviews" className="flex justify-center items-center border border-qul-red hover:bg-qul-red-light text-qul-red font-bold w-60 h-14 py-2 px-4 md:mb-5 rounded-xl">
           Read Reviews
-        </button>
+        </Link>
       </div>
 
       <div className="hidden md:flex flex-col flex-2 items-start justify-center w-full">
-        <h2 className="text-2xl font-bold mb-4 text-qul-red ">Find Reviews</h2>
+        <h2 className="text-2xl font-bold mb-4 text-qul-red ">Read Reviews</h2>
         <div className="relative w-full">
           <input className="pl-10 p-2 border bg-gray-100 rounded-3xl h-16 w-full" type="text" placeholder="Landlord, company name, property address..." />
           <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
