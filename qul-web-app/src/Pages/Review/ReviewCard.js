@@ -23,7 +23,7 @@ function ReviewCard() {
 
   const ReviewCard = ({ title, text }) => {
     return (
-      <div className="relative p-4 w-full mx-auto bg-gray-200 rounded-xl shadow-md flex flex-col items-start space-y-4 border border-black">
+      <div className="relative px-4 pb-4 pt-1 w-full mx-auto bg-gray-200 rounded-xl shadow-md flex flex-col items-start space-y-4 border border-black">
         <h3 className="absolute top-0 left-5 -translate-y-1/2 bg-gray-200 px-2 text-lg font-bold text-gray-800">
           {title}
         </h3>
