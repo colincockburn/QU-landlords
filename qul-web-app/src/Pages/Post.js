@@ -61,74 +61,74 @@ function Post() {
   
 
   return (
-    <div className="flex flex-col justify-start items-center flex-grow w-full md:w-5/6 lg:w-full max-w-maxw p-2 font-custom">
+    <div className="flex flex-col justify-start items-center flex-grow w-full md:w-5/6 lg:w-full max-w-maxw p-2 font-custom text-qul-dark-gray">
         <div className='w-full'>
-            <h2 className="text-2xl font-semibold mb-2">Write a review</h2>
+            <h2 className="text-2xl md:text-4xl font-semibold mb-1 md:mb-6 md:mt-6 text-qul-red">Write a review</h2>
         </div>
         <form onSubmit={handleSubmit} className='w-full text-sm md:text-lg'>
             {/* section that splits on md screens */}
             <div className='flex flex-col md:flex-row'>
                 {/* landlord/duration/maybe landlord rating div */}
-                <div className="flex flex-col justify-between w-full">
-                    <label htmlFor="landlordName">Landlord Name</label>
+                <div className="flex flex-col justify-between w-full md:mr-10">
+                    <label htmlFor="landlordName" className='md:mb-2'>Landlord Name</label>
                     <input
                         type="text"
                         id="landlordName"
                         name="landlordName"
-                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-10 w-full'
                         placeholder='John Doe'
                         value={review.landlordName}
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="duration">duration</label>
+                    <label htmlFor="duration" className='md:mb-2'>duration</label>
                     <input
                         type="text"
                         id="duration"
                         name="duration"
-                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-10 w-full'
                         placeholder='1 year'
                         value={review.duration}
                         onChange={handleChange}
                         required
                     />
-                    <div className="hidden md:flex flex-col">
-                        <label htmlFor="reliability">Reliability</label>
+                    <div className="hidden md:flex flex-col mb-2 md:mb-10">
+                        <label htmlFor="reliability" className='md:mb-2'>Reliability</label>
                         <div>{createRatingButtons("reliability")}</div>
 
                     </div>
                 </div>
                 {/* address rent amount recommendation and maybe reliability */}
                 <div className="flex flex-col justify-between w-full">
-                    <label htmlFor="propertyAddress">Property Address (Optional)</label>
+                    <label htmlFor="propertyAddress" className='md:mb-2'>Property Address (Optional)</label>
                     <input
                         type="text"
                         id="propertyAddress"
                         name="propertyAddress"
-                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-10 w-full'
                         placeholder='123 fake street'
                         value={review.propertyAddress}
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="rentAmount">Rent Amount (Optional)</label>
+                    <label htmlFor="rentAmount" className='md:mb-2'>Rent Amount (Optional)</label>
                     <input
                         type="text"
                         id="rentAmount"
                         name="rentAmount"
-                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 w-full'
+                        className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-10 w-full'
                         placeholder='800$ + utilities'
                         value={review.rentAmount}
                         onChange={handleChange}
                         required
                     />
-                    <div className='flex flex-col mb-2 '>
-                        <label htmlFor="recommendation">Recommendation</label>
+                    <div className='flex flex-col mb-2 md:mb-10 '>
+                        <label htmlFor="recommendation" className='md:mb-2'>Recommendation</label>
                         <div>{createRatingButtons("recommendation")}</div>
 
                     </div>
-                    <div className="md:hidden flex flex-col mb-2 ">
-                        <label htmlFor="reliability">Reliability</label>
+                    <div className="md:hidden flex flex-col mb-2 md:mb-10 ">
+                        <label htmlFor="reliability" className='md:mb-2'>Reliability</label>
                         <div>{createRatingButtons("reliability")}</div>
                     </div>
                 </div>
@@ -136,24 +136,27 @@ function Post() {
 
             {/* review and post */}
             <div className='flex flex-col'>
-                <label htmlFor="writtenReview">written Review (Optional)</label>
+                <label htmlFor="writtenReview" className='md:mb-2'>written Review (Optional)</label>
                 <textarea
                     id="writtenReview"
                     name="writtenReview"
-                    className='border border-gray-900 rounded-xl bg-transparent p-2 mb-4 w-full'
+                    className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-16 w-full'
                     placeholder='John Doe is a great landlord'
                     value={review.writtenReview}
                     onChange={handleChange}
                     required
                     rows={2}
                     />
-                <div className='flex justify-center items-center'>                
+                <div className='flex flex-col justify-center items-center'>                
                     <button
                         type="submit"
-                        className=" bg-qul-red hover:bg-qul-red-light text-white font-bold h-14 w-60 py-2 px-4 rounded-xl"
+                        className=" bg-qul-red hover:bg-qul-red-light text-white font-bold h-14 w-60 py-2 mb-1 md:mb-4 px-4 rounded-xl"
                     >
                         Post
                     </button>
+                    <h className="text-xs text-qul-gray md:mb-4">
+                        Your post is 100% anonymous and is subect to being reported if innappropriate
+                    </h>
                 </div>
             </div>
         </form>
