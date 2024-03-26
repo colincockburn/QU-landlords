@@ -10,6 +10,9 @@ const reviewSchema = new mongoose.Schema({
   writtenReview: String,
 }, { timestamps: true });
 
+// Create a text index on the landlordName field
+reviewSchema.index({ landlordName: 'text' });
+
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;
