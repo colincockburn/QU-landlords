@@ -23,4 +23,19 @@ router.get('/reviews', async (req, res) => {
   }
 });
 
+// Performs full-text search based on an input string for the landlordName field, return an array of reviews returned by the search
+router.get('/search', async (req, res) => {
+  try {
+    const searchString = req.query.search;
+    if (!searchString) {
+      return res.status(400).json({ message: 'No search query provided' });
+    }
+
+    const reviews = await Review.find({ $text: { $search: searchString } });
+    res.status(200).json(reviews);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
