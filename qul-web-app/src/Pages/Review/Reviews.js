@@ -8,6 +8,9 @@ function Reviews() {
 
   const [isLoading, setIsLoading] = useState(false); // State to track if form has been submitted
   const [reviews, setReviews] = useState([]);
+  const [searched, setSearched] = useState(false); // State to track if a search has been performed
+  const [displaySearchText, setDisplaySearchText] = useState(''); // State to store the search term
+  const [listLength, setListLength] = useState(0); // State to store the length of the search results
     // State to store the input value
   const [searchText, setSearchText] = useState('');
 
@@ -34,6 +37,9 @@ function Reviews() {
       const data = await response.json();
       console.log('Search results:', data);
       setReviews(data); // Update the reviews state with the search results
+      setListLength(data.length);
+      setDisplaySearchText(searchText); // Update the search term state
+      setSearched(true); // Set the searched state to true
     } catch (error) {
       console.error('Search error:', error);
     }
@@ -72,7 +78,7 @@ function Reviews() {
       
       <div className="flex flex-col items-center justify-start w-full font-custom font-bold">
         <h2 className="text-2xl font-bold mb-4 text-qul-red">Read Reviews</h2>
-        <div className="relative w-full">
+        <div className="relative w-full mb-3">
           <input
           className="pl-10 p-2 border bg-gray-100 rounded-3xl h-16 w-full"
           type="text"
@@ -86,13 +92,12 @@ function Reviews() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <div className='flex justify-center items-center m-3'>
+        {searched && <div className='flex justify-center items-center mb-3'>
           <p className="text-qul-red">
-            <span className="text-red-700">{variable1}</span> results for <span className="text-red-700">{variable2}</span>
+            <span className="text-red-700">{listLength}</span> results for <span className="text-red-700">{displaySearchText}</span>
           </p>
-        </div>
-        {isLoading && <ReviewProcessing />}
-        <ReviewCard />
+        </div>}
+        {/* {isLoading && <ReviewProcessing />} */}
       </div>
       {isLoading ? (
         <ReviewProcessing />
