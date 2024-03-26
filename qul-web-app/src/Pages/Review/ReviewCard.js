@@ -1,6 +1,8 @@
 import React from 'react';
 
 function ReviewCard({ review }) {
+
+
   // Function to generate stars for ratings
   const generateStars = (rating) => {
 
@@ -23,13 +25,13 @@ function ReviewCard({ review }) {
   };
 
   return (
-    <div className="flex flex-col items-center mx-auto bg-gray-200 rounded-lg shadow-md mb-6 w-full max-w-lg">
-      <div className="bg-red-600 rounded-lg text-center py-2 text-white text-xl font-bold w-full ">{reviewData.landlordName}</div>
+    <div className="flex flex-col items-center mx-auto bg-gray-200 rounded-lg shadow-md mb-6 w-full max-w-lg font-custom">
+      <div className="bg-red-600 rounded-lg text-center py-2 text-white text-xl font-bold w-full ">{review.landlordName}</div>
       <div className="p-6 w-full max-w-md">
         <div className="flex flex-col space-y-2 mb-4">
           <div className="flex justify-between">
             <span className="text-gray-700 ">Rent:</span>
-            <span className="text-left ">{reviewData.rent}</span
+            <span className="text-left ">{review.rentAmount}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-700">Property Address:</span>
@@ -48,7 +50,7 @@ function ReviewCard({ review }) {
             <span className="text-left">{generateStars(review.recommendation)}</span>
           </div>
         </div>
-        <ReviewCard  title='Review' text={reviewData.reviewText} />
+        <ReviewCard  title='Review' text={review.writtenReview} />
       </div>
     </div>
   );
