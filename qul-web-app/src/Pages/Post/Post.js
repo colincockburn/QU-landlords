@@ -150,22 +150,21 @@ function Post() {
             </div>
 
             {/* review and post */}
-            <div className='flex flex-col'>
+            <div className='flex flex-col flex-grow'>
                 <label htmlFor="writtenReview" className='md:mb-2 text-sm'>Written Review (Optional)</label>
                 <textarea
                     id="writtenReview"
                     name="writtenReview"
-                    className='border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-16 w-full'
+                    className='flex border border-gray-900 rounded-xl bg-transparent p-2 mb-2 md:mb-16 w-full h-64 font-custom'
                     placeholder='John Doe is a great landlord'
                     value={review.writtenReview}
                     onChange={handleChange}
                     required
-                    rows={2}
                     />
                 <div className='flex flex-col justify-center items-center'>                
                     <button
                         type="submit"
-                        className=" bg-qul-red hover:bg-qul-red-light text-white font-bold h-14 w-60 py-2 mb-1 md:mb-4 px-4 rounded-xl"
+                        className=" bg-qul-red hover:bg-qul-red-dark text-white font-bold h-14 w-60 py-2 mb-1 md:mb-4 px-4 rounded-xl font-custom"
                     >
                         Post
                     </button>

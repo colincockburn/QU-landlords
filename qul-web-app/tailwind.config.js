@@ -15,7 +15,7 @@ module.exports = {
       },
       colors: {
         'qul-red': '#D32F2F',
-        'qul-red-light': '#E57373',
+        'qul-red-dark': '#B71C1C',
         'qul-gray': '#777777',
         'qul-dark-gray': '#333333',
         'qul-bg': '#F4F4F4',
@@ -24,7 +24,8 @@ module.exports = {
         'maxw': '1000px', // Replace '500px' with your desired value
       },      
       maxHeight: {
-        '800px': '800px'
+        '800px': '800px',
+        '500px': '500px'
       }
     },
   },
