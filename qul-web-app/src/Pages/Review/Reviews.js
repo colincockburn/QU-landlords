@@ -22,8 +22,18 @@ function Reviews() {
     if (search) {
       performSearch(search);
       setSearchText(search);
+    } else {
+      setSearched(false);
+      loadPosts();
     }
   }, [search]);
+
+
+  // This is called whenever the page is fetched
+  // useEffect(() => {
+
+  //   loadPosts(); // Call the function to execute the fetch operation.
+  // }, []);
 
   const handleInputChange = (event) => {
     setSearchText(event.target.value);
@@ -77,12 +87,6 @@ function Reviews() {
     setIsLoading(false);
   };
   
-
-  // This is called whenever the page is fetched
-  useEffect(() => {
-
-    loadPosts(); // Call the function to execute the fetch operation.
-  }, []);
 
   let variable1 = 0;
   let variable2 = 'no search term';
