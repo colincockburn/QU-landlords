@@ -24,7 +24,12 @@ function Reviews() {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault(); // To prevent form submission if it's inside a form
-      performSearch(searchText);
+      if (searchText === '') {
+        setSearched(false);
+        loadPosts();
+      } else {
+        performSearch(searchText);
+      }
     }
   };
 
@@ -44,29 +49,30 @@ function Reviews() {
       console.error('Search error:', error);
     }
   };
+
+  const loadPosts = async () => {
+    setIsLoading(true);
+    console.log('Fetching reviews...');
+    try {
+      let response = await fetch('http://localhost:3000/api/reviews');
+      if (response.ok) {
+        console.log("Reviews fetched successfully! Setting reviews...");
+        let results = await response.json();
+        setReviews(results);
+        console.log(results);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Could not fetch reviews:", error);
+    }
+    setIsLoading(false);
+  };
   
 
   // This is called whenever the page is fetched
   useEffect(() => {
-    const loadPosts = async () => {
-      setIsLoading(true);
-      console.log('Fetching reviews...');
-      try {
-        let response = await fetch('http://localhost:3000/api/reviews');
-        if (response.ok) {
-          console.log("Reviews fetched successfully! Setting reviews...");
-          let results = await response.json();
-          setReviews(results);
-          console.log(results);
-        } else {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-      } catch (error) {
-        console.error("Could not fetch reviews:", error);
-      }
-      setIsLoading(false);
-    };
-  
+
     loadPosts(); // Call the function to execute the fetch operation.
   }, []);
 
