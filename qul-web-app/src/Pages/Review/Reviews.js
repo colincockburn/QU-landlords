@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import ReviewProcessing from '../Post/ReviewProcessing';
 import ReviewCard from './ReviewCard';
 
@@ -14,11 +14,19 @@ function Reviews() {
     // State to store the input value
   const [searchText, setSearchText] = useState('');
 
-    // Function to update the state with the input's current value
+
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get('search');
+
+  useEffect(() => {
+    if (search) {
+      performSearch(search);
+      setSearchText(search);
+    }
+  }, [search]);
+
   const handleInputChange = (event) => {
-    console.log('Input changed:', event.target.value);
     setSearchText(event.target.value);
-    handleKeyPress(event); // Call the function to handle the Enter key press
   };
 
   const handleKeyPress = (e) => {
@@ -30,6 +38,7 @@ function Reviews() {
       } else {
         performSearch(searchText);
       }
+
     }
   };
 
@@ -40,11 +49,10 @@ function Reviews() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      console.log('Search results:', data);
-      setReviews(data); // Update the reviews state with the search results
+      setReviews(data);
       setListLength(data.length);
-      setDisplaySearchText(searchText); // Update the search term state
-      setSearched(true); // Set the searched state to true
+      setDisplaySearchText(value);
+      setSearched(true);
     } catch (error) {
       console.error('Search error:', error);
     }

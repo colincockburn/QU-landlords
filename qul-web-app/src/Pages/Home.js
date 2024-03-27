@@ -1,7 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 
 function Home() {
+  const [searchText, setSearchText] = useState('');
+
+  const handleInputChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/reviews?search=${searchText}`);
+  };
+
   return (
     <div className="flex flex-col justify-around items-center flex-grow md:w-5/6 lg:w-full max-w-maxw md:pt-20">
 
@@ -26,10 +42,18 @@ function Home() {
       <div className="hidden md:flex flex-col flex-2 items-start justify-center w-full">
         <h2 className="text-2xl font-bold mb-4 text-qul-red font-custom">Read Reviews</h2>
         <div className="relative w-full">
-          <input className="pl-10 p-2 border border-gray-300 bg-gray-200 rounded-3xl h-16 w-full font-custom" type="text" placeholder="Landlord, company name, property address..." />
-          <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="pl-10 p-2 border border-gray-300 bg-gray-200 rounded-3xl h-16 w-full font-custom"
+              type="text"
+              placeholder="Landlord, company name, property address..."
+              value={searchText}
+              onChange={handleInputChange}
+              />
+            <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </form>
         </div>
       </div>
     </div>

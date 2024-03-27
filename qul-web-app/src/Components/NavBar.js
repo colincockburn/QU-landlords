@@ -9,7 +9,7 @@ function NavBar() {
       <img src="/flag.png" alt="Queens Flag " className='w-20 h-12 mr-2 transform transition duration-500 ease-in-out hover:scale-110 hidden md:block' />
       </NavLink>      
       <div className='flex-col '>
-          <NavLink exact to="/" className="md:text-2xl font-semibold font-Raleway text-black hover:text-gray-500 transform transition duration-500 ease-in-out hover:scale-110" activeClassName="text-red-500">QU Landlords</NavLink>
+          <NavLink exact to="/" className="md:text-2xl font-semibold font-Raleway text-black hover:text-qul-red transform transition duration-500 ease-in-out hover:scale-110" activeClassName="text-red-500">QU Landlords</NavLink>
           <p className="text-gray-700 hidden sm:block">Not associated with Queen's University</p>        
         </div>
       </div>

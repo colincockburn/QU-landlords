@@ -86,7 +86,7 @@ function Post() {
             <div className='flex flex-col md:flex-row'>
                 {/* landlord/duration/maybe landlord rating div */}
                 <div className="flex flex-col justify-between w-full md:mr-10">
-                    <label htmlFor="landlordName" className='md:mb-2 text-sm'>Landlord Name</label>
+                    <label htmlFor="landlordName" className='md:mb-2 text-sm'>Landlord/Company Name</label>
                     <input
                         type="text"
                         id="landlordName"
@@ -115,7 +115,7 @@ function Post() {
                 </div>
                 {/* address rent amount recommendation and maybe reliability */}
                 <div className="flex flex-col justify-between w-full">
-                    <label htmlFor="propertyAddress" className='md:mb-2 text-sm'>Property Address (Optional)</label>
+                    <label htmlFor="propertyAddress" className='md:mb-2 text-sm'>Property Address / Postal Code (Optional)</label>
                     <input
                         type="text"
                         id="propertyAddress"
