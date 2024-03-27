@@ -61,6 +61,7 @@ function Post() {
   const createRatingButtons = (ratingType) => {
     return [1, 2, 3, 4, 5].map((number) => (
       <button
+        type="button" // Specify the type of the button as "button"
         key={number}
         className={`border border-blue-400 rounded-lg p-2 mr-2 w-10 text-center ${review[ratingType] === number ? 'bg-blue-500 text-white' : 'text-blue-400'}`}
         onClick={() => setReview({ ...review, [ratingType]: number })}
@@ -96,7 +97,7 @@ function Post() {
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="duration" className='md:mb-2 text-sm'>Duration</label>
+                    <label htmlFor="duration" className='md:mb-2 text-sm'>Duration (Optional)</label>
                     <input
                         type="text"
                         id="duration"
@@ -105,7 +106,6 @@ function Post() {
                         placeholder='1 year'
                         value={review.duration}
                         onChange={handleChange}
-                        required
                     />
                     <div className="hidden md:flex flex-col mb-2 md:mb-10">
                         <label htmlFor="reliability" className='md:mb-2 text-sm'>Reliability</label>
@@ -124,7 +124,6 @@ function Post() {
                         placeholder='123 Fake Street'
                         value={review.propertyAddress}
                         onChange={handleChange}
-                        required
                     />
                     <label htmlFor="rentAmount" className='md:mb-2 text-sm'>Rent Amount (Optional)</label>
                     <input
@@ -135,7 +134,6 @@ function Post() {
                         placeholder='$800 / room + utilities'
                         value={review.rentAmount}
                         onChange={handleChange}
-                        required
                     />
                     <div className='flex flex-col mb-2 md:mb-10'>
                         <label htmlFor="recommendation" className='md:mb-2 text-sm'>Recommendation</label>
@@ -159,7 +157,6 @@ function Post() {
                     placeholder='John Doe is a great landlord'
                     value={review.writtenReview}
                     onChange={handleChange}
-                    required
                     />
                 <div className='flex flex-col justify-center items-center'>                
                     <button

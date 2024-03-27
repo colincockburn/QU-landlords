@@ -80,7 +80,7 @@ function Reviews() {
         <h2 className="text-2xl font-bold mb-4 text-qul-red">Read Reviews</h2>
         <div className="relative w-full mb-3">
           <input
-          className="pl-10 p-2 border bg-gray-100 rounded-3xl h-16 w-full"
+          className="pl-10 p-2 border border-gray-300 bg-gray-200 rounded-3xl h-16 w-full"
           type="text"
           placeholder="Landlord, company name, property address..."
           value={searchText}
