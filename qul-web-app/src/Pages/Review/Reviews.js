@@ -54,7 +54,7 @@ function Reviews() {
 
   const performSearch = async (value) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/search?search=${value}`);
+      const response = await fetch(`http://107.23.138.151:3000/api/search?search=${value}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -72,7 +72,7 @@ function Reviews() {
     setIsLoading(true);
     console.log('Fetching reviews...');
     try {
-      let response = await fetch('http://localhost:3000/api/reviews');
+      let response = await fetch('http://107.23.138.151:3000/api/reviews');
       if (response.ok) {
         console.log("Reviews fetched successfully! Setting reviews...");
         let results = await response.json();
