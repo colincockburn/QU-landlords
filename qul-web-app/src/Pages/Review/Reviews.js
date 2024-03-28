@@ -83,6 +83,7 @@ function Reviews() {
       }
     } catch (error) {
       console.error("Could not fetch reviews:", error);
+      setIsLoading(false);
     }
     setIsLoading(false);
   };
