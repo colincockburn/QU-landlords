@@ -19,7 +19,7 @@ function Home() {
   };
 
   return (
-    <div className="flex flex-col justify-around items-center flex-grow md:w-5/6 lg:w-full max-w-maxw md:pt-20">
+    <div className="flex flex-col justify-around items-center flex-grow md:w-5/6 lg:w-full max-w-maxw max-h-1000px md:pt-20">
 
       {/* both are column on mobile and row on desktop */}
       <div className="flex flex-col md:flex-row flex-2 justify-center items-center ">
