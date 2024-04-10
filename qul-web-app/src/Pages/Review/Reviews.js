@@ -54,7 +54,7 @@ function Reviews() {
 
   const performSearch = async (value) => {
     try {
-      const response = await fetch(`http://107.23.138.151:3000/api/search?search=${value}`);
+      const response = await fetch(`https://www.qulandlords.com/api/search?search=${value}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
