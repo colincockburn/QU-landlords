@@ -7,7 +7,7 @@ function ReviewCard({ review }) {
   const generateStars = (rating) => {
 
     return Array.from({ length: 5 }, (_, index) => 
-      <span style={index < rating ? {color: 'gold'} : {color: 'black'}}>
+      <span className="text-xl " style={index < rating ? {color: 'black'} : {color: 'black'}}>
         {index < rating ? '★' : '☆'}
       </span>
     );

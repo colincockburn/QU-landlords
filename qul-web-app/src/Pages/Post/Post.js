@@ -4,10 +4,10 @@ import ReviewProcessing from './ReviewProcessing';
 
 function Post() {
 
-  const [isLoading, setIsLoading] = useState(false); // State to track if form has been submitted
-  const [isSubmitted, setIsSubmitted] = useState(false); // State to track if form has been submitted
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false); 
 
-  const [review, setReview] = useState({ // State to track form inputs
+  const [review, setReview] = useState({
     landlordName: '',
     propertyAddress: '',
     duration: '',
@@ -61,7 +61,7 @@ function Post() {
   const createRatingButtons = (ratingType) => {
     return [1, 2, 3, 4, 5].map((number) => (
       <button
-        type="button" // Specify the type of the button as "button"
+        type="button" 
         key={number}
         className={`border border-blue-400 rounded-lg p-2 mr-2 w-10 text-center ${review[ratingType] === number ? 'bg-blue-500 text-white' : 'text-blue-400'}`}
         onClick={() => setReview({ ...review, [ratingType]: number })}
